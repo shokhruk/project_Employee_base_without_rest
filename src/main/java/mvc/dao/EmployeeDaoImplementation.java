@@ -25,5 +25,18 @@ public class EmployeeDaoImplementation implements EmployeeDAO {
         return allEmployees;
     }
 
+    @Override
+    public void setEmployee(Employees employee) {
+        Session session = sessionFactory.getCurrentSession();
+        session.saveOrUpdate(employee);
+    }
+
+    @Override
+    public Employees getEmployee(int id) {
+        Session session = sessionFactory.getCurrentSession();
+        Employees employee = session.get(Employees.class, id);
+        return employee;
+    }
+
 
 }
